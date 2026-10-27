@@ -193,6 +193,71 @@ h2{font-family:var(--serif);font-weight:800;font-optical-sizing:none;font-variat
 footer{border-top:1px solid var(--line);padding:2rem 0 calc(2rem + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
 
+/* Websites + portfolio */
+.sites{padding-top:2rem}
+.sites-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:4rem;align-items:start}
+.sites-copy p{margin-top:1rem;max-width:38rem}
+.sites-copy .lede{margin-top:1.2rem}
+.folio-intro{margin-top:2.6rem;padding-top:2rem;border-top:2px solid var(--char)}
+.kicker{color:var(--magenta);font-weight:600;font-size:.95rem;margin:0}
+.folio-intro h3{font-family:var(--serif);font-weight:800;font-optical-sizing:none;font-variation-settings:var(--serif-opsz);
+  font-size:clamp(1.7rem,3vw,2.3rem);color:var(--char);line-height:1.1;margin-top:.3rem}
+.folio-intro .btn{margin-top:1.6rem}
+.ticks{list-style:none;display:grid;gap:.45rem;margin-top:1rem}
+.ticks li{position:relative;padding-left:1.6rem}
+.ticks li::before{content:"";position:absolute;left:0;top:.42em;width:.85rem;height:.85rem;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#FF5CC4,var(--pink) 50%,var(--plum))}
+.folio-intro .ticks{grid-template-columns:1fr 1fr;max-width:28rem}
+
+/* The rising columns */
+.rise{position:sticky;top:6rem;height:min(44rem,82vh);display:grid;grid-template-columns:1fr 1fr;gap:1rem;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent)}
+.rise-col{overflow:hidden}
+.track{display:flex;flex-direction:column;animation:rise 46s linear infinite}
+.rise-b{margin-top:-7rem}
+.rise-b .track{animation-duration:58s}
+.rise:hover .track{animation-play-state:paused}
+.set{display:flex;flex-direction:column;gap:1rem;padding-bottom:1rem}
+.shot{margin:0;border-radius:.7rem;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 .8rem 1.8rem rgba(24,38,47,.12)}
+.shot img{display:block;width:100%;height:auto}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+
+/* Pricing */
+#pricing{padding-top:6rem}
+.plans{margin-top:2.8rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;align-items:stretch}
+.plan{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:1.25rem;padding:1.9rem 1.7rem 1.7rem}
+.plan-pop{border:2px solid var(--magenta);box-shadow:0 1.2rem 2.6rem rgba(208,12,140,.14)}
+.plan-badge{position:absolute;top:-.85rem;left:1.7rem;background:var(--magenta);color:#fff;font-weight:700;font-size:.8rem;border-radius:999px;padding:.25rem .8rem}
+.plan-tier{color:var(--muted);font-weight:600;font-size:.9rem}
+.plan h3{font-family:var(--serif);font-weight:800;font-optical-sizing:none;font-variation-settings:var(--serif-opsz);font-size:1.9rem;color:var(--char);line-height:1.1;margin-top:.15rem}
+.plan-tag{color:var(--magenta);font-weight:600;margin-top:.2rem}
+.plan-price{margin-top:1.2rem;font-family:var(--serif);font-weight:800;font-optical-sizing:none;font-variation-settings:var(--serif-opsz);
+  font-size:2.5rem;line-height:1;color:var(--char);font-variant-numeric:lining-nums tabular-nums}
+.plan-price .cur{font-family:"Jost",sans-serif;font-size:1rem;font-weight:600;vertical-align:.95em;margin-right:.25rem;color:var(--muted)}
+.plan-price small{font-family:"Jost",sans-serif;font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan-month{margin-top:.35rem;font-weight:600;color:var(--ink)}
+.plan-desc{margin-top:1rem;color:var(--muted)}
+.plan-h{margin-top:1.3rem;font-weight:700;color:var(--char);font-size:.95rem}
+.plan .ticks{margin-top:.6rem;font-size:.97rem}
+.plan .ticks li::before{width:.7rem;height:.7rem;top:.45em}
+.plan-cta{margin-top:auto;align-self:stretch}
+.plan .ticks:last-of-type{margin-bottom:1.8rem}
+
+@media (max-width:980px){
+  .sites-grid{grid-template-columns:1fr;gap:3rem}
+  .rise{position:relative;top:0;height:30rem}
+  .plans{grid-template-columns:1fr;max-width:32rem}
+}
+@media (max-width:640px){
+  .rise{height:24rem}
+  .folio-intro .ticks{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .track{animation:none}
+  .rise{overflow-y:auto;-webkit-mask-image:none;mask-image:none}
+  .rise-b{margin-top:0}
+}
+
 /* Responsive */
 @media (max-width:900px){
   .nav{display:none}
@@ -224,6 +289,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
     <a class="brand" href="#top"><img src="logo.png" width="480" height="250" alt="Apt Communications"></a>
     <nav class="nav" aria-label="Main">
       <a href="#build">What we build</a>
+      <a href="#websites">Websites</a>
+      <a href="#pricing">Pricing</a>
       <a href="#apps">Apps</a>
       <a href="#work">Work</a>
       <a href="#contact">Contact</a>
@@ -271,7 +338,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
       <div class="build">
         <div class="build-row">
           <h3>Websites</h3>
-          <p>Fast, modern websites for stations and businesses, with live players, programme schedules, presenter pages and everything your audience comes looking for.</p>
+          <div>
+            <p>Fast, modern websites for stations and businesses, with live players, programme schedules, presenter pages and everything your audience comes looking for.</p>
+            <a class="more" href="#websites">See our websites and pricing</a>
+          </div>
         </div>
         <div class="build-row">
           <h3>Streaming apps</h3>
@@ -288,6 +358,117 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
             <a class="more" href="https://airdeskpro.com" target="_blank" rel="noopener">Visit airdeskpro.com</a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sites" id="websites">
+    <div class="wrap sites-grid">
+      <div class="sites-copy">
+        <h2>Websites built around your business</h2>
+        <p class="lede">Your website is the online shop window for your business. We create websites in line with your business goals, designed to look great and perform even better, making it easy for new and existing customers to find you and get in touch.</p>
+        <p>We help businesses across a range of sectors: trades, shops, beauty, salons, cafes and restaurants, healthcare, retail and start-ups.</p>
+        <p>Whether you’re just starting out or need to refresh your existing site, a real person (not AI!) will talk you through it all. Our digital experts make sure your website not only looks great but ticks all the boxes so Google knows how to find you. We handle all the back-end technical build so you don’t have to.</p>
+
+        <div class="folio-intro">
+          <p class="kicker">Portfolio</p>
+          <h3>Endless possibilities</h3>
+          <p>Every website is built around the business it represents. A continuous look at a few recent builds.</p>
+          <ul class="ticks">
+            <li>Fast loading</li><li>Mobile-friendly</li><li>Built to convert</li><li>Easy to update</li>
+          </ul>
+          <a class="btn btn-line" href="#pricing">See pricing</a>
+        </div>
+      </div>
+
+      <div class="rise" role="region" aria-label="Recent website builds, scrolling">
+        <div class="rise-col rise-a">
+<div class="track">
+<div class="set">
+<figure class="shot"><img src="work/bahati.webp" alt="Dr. Bahati Hilda Sabiti, personal brand website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/mahanaim.webp" alt="Mahanaim Estates, real estate website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/sunny.webp" alt="Sunny 88.7 FM, radio station website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/jjd.webp" alt="JJD The Voice, voice-over artist website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/kanjy.webp" alt="Kanjy Communications, marketing consultancy website" width="880" height="446" loading="lazy" decoding="async"></figure>
+</div>
+<div class="set" aria-hidden="true">
+<figure class="shot"><img src="work/bahati.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/mahanaim.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/sunny.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/jjd.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/kanjy.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+        </div>
+        <div class="rise-col rise-b">
+<div class="track">
+<div class="set">
+<figure class="shot"><img src="work/sunny.webp" alt="Sunny 88.7 FM, radio station website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/jjd.webp" alt="JJD The Voice, voice-over artist website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/kanjy.webp" alt="Kanjy Communications, marketing consultancy website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/bahati.webp" alt="Dr. Bahati Hilda Sabiti, personal brand website" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/mahanaim.webp" alt="Mahanaim Estates, real estate website" width="880" height="446" loading="lazy" decoding="async"></figure>
+</div>
+<div class="set" aria-hidden="true">
+<figure class="shot"><img src="work/sunny.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/jjd.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/kanjy.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/bahati.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="work/mahanaim.webp" alt="" width="880" height="446" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap" id="pricing">
+      <h2 class="price-title">Simple pricing</h2>
+      <p class="lede">One payment to build your website, then a small monthly fee that keeps it online, secure and up to date.</p>
+      <div class="plans">
+
+        <article class="plan">
+          <p class="plan-tier">Entry</p>
+          <h3>Essential</h3>
+          <p class="plan-tag">Get your business online</p>
+          <p class="plan-price"><span class="cur">GH₵</span>3,000 <small>one-off</small></p>
+          <p class="plan-month">+ GH₵ 650 a month</p>
+          <p class="plan-desc">A professional one-page website: everything you need, nothing you don’t.</p>
+          <p class="plan-h">Includes</p>
+          <ul class="ticks"><li>One-page responsive website</li><li>Custom design</li><li>Works on all devices</li><li>Contact form</li><li>Google Maps</li><li>Social media links</li></ul>
+          <p class="plan-h">Every month</p>
+          <ul class="ticks"><li>Hosting and security</li><li>Backups</li><li>Updates and support</li></ul>
+          <a class="btn btn-line plan-cta" href="https://wa.me/233245621346?text=Hi%20Apt%20Communications%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Essential%20website%20plan%20%28GH%E2%82%B5%203%2C000%29." target="_blank" rel="noopener">Get started</a>
+        </article>
+
+        <article class="plan plan-pop">
+          <p class="plan-badge">Most popular</p>
+          <p class="plan-tier">Growth</p>
+          <h3>Growth</h3>
+          <p class="plan-tag">Win more customers</p>
+          <p class="plan-price"><span class="cur">GH₵</span>7,500 <small>one-off</small></p>
+          <p class="plan-month">+ GH₵ 650 a month</p>
+          <p class="plan-desc">Multiple pages to showcase your services and build trust.</p>
+          <p class="plan-h">Everything in Essential, plus</p>
+          <ul class="ticks"><li>Up to 5 pages</li><li>Service pages</li><li>About page</li><li>Gallery or portfolio</li><li>FAQ section</li><li>Customer reviews</li></ul>
+          <p class="plan-h">Every month</p>
+          <ul class="ticks"><li>Hosting and security</li><li>4 content updates</li><li>Technical support</li></ul>
+          <a class="btn btn-primary plan-cta" href="https://wa.me/233245621346?text=Hi%20Apt%20Communications%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Growth%20website%20plan%20%28GH%E2%82%B5%207%2C500%29." target="_blank" rel="noopener">Get started</a>
+        </article>
+
+        <article class="plan">
+          <p class="plan-tier">Premium</p>
+          <h3>Bespoke</h3>
+          <p class="plan-tag">Built for growth</p>
+          <p class="plan-price"><span class="cur">GH₵</span>15,000 <small>one-off</small></p>
+          <p class="plan-month">+ GH₵ 950 a month</p>
+          <p class="plan-desc">A fully custom website for established businesses that need more.</p>
+          <p class="plan-h">Everything in Growth, plus</p>
+          <ul class="ticks"><li>5+ bespoke pages</li><li>Completely custom design</li><li>Blog or news section</li><li>Advanced enquiry forms</li><li>Booking or quote systems</li><li>Google Analytics setup</li></ul>
+          <p class="plan-h">Every month</p>
+          <ul class="ticks"><li>Premium hosting</li><li>Priority support</li><li>Ongoing improvements</li></ul>
+          <a class="btn btn-line plan-cta" href="https://wa.me/233245621346?text=Hi%20Apt%20Communications%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Bespoke%20website%20plan%20%28GH%E2%82%B5%2015%2C000%29." target="_blank" rel="noopener">Get started</a>
+        </article>
+
       </div>
     </div>
   </section>
